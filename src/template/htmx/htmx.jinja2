@@ -74,4 +74,11 @@
 <div>
   <button class="btn btn-primary" hx-post="/progress" hx-swap="outerHTML">Install</button>
 </div>
+
+
+
+<h4>Choose your own adventure</h4>
+<div id="cyoa-target">
+  <button class="btn btn-primary" hx-get="/cyoa" hx-target="#cyoa-target" hx-swap="innerHTML">Start adventure</button>
+</div>
 {% endblock %}

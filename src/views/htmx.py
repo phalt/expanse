@@ -53,4 +53,20 @@ def progress():
         return dict(finished=False, total_time=total_time + delay, delay=delay)
 
 
+
+@routes.route("/cyoa", methods=["GET"])
+@render_html()
+def cyoa():
+    return dict()
+
+@routes.route("/cyoa1", methods=["GET"])
+@render_html()
+def cyoa1():
+    return dict()
+
+@routes.route("/cyoa2", methods=["GET"])
+@render_html()
+def cyoa2():
+    return dict()
+
 app.register_blueprint(routes)
