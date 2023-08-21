@@ -46,8 +46,6 @@ class render_html:
                 directory = "/".join(f.__module__.split(".")[2:])
                 template = f"/{directory}/{f.__name__}.jinja2"
 
-            log.info(f"Looking for {template}...")
-
             out = flask.render_template(
                 template,
                 **response,

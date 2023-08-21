@@ -1,8 +1,6 @@
 {% extends 'base.jinja2' %}
+{% block title %}HTMX Examples{% endblock %}
 
-{% block header %}
-  <h1>{% block title %}HTMX{% endblock %}</h1>
-{% endblock %}
 
 {% block content %}
 <h2>Inspect the source, go through each example</h2>
@@ -46,9 +44,34 @@
 
 <h3>HX-POST</h3>
 <h4>Simple todo list</h4>
-<form hx-post="/post-example" hx-target="#post-target" hx-swap="afterend">
+<form hx-post="/post-example" hx-target="#post-target" hx-swap="beforeend">
   <label>Todo item: <input name="item" type="text"></label>
+  <input type="submit" value="Add">
 </form>
 <ul id="post-target"></ul>
 <hr />
+
+
+
+{# <h3>Polling</h3>
+<div hx-get="poll" hx-trigger="every 1s" hx-swap="innerHTML"></div> #}
+
+
+<h3>Loading indicators!</h3>
+<div>
+    <button hx-get="/loading" hx-indicator="#indicator" hx-target="#loading-target">
+        Click Me!
+    </button>
+    <div id="loading-target"></div>
+    <div id="indicator" class="htmx-indicator spinner-border" role="status">
+      <span class="sr-only"></span>
+    </div>
+</div>
+
+
+<h3>Complex examples</h3>
+<h4>Progress bar</h4>
+<div>
+  <button class="btn btn-primary" hx-post="/progress" hx-swap="outerHTML">Install</button>
+</div>
 {% endblock %}

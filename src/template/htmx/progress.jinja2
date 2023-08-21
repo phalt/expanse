@@ -1,0 +1,9 @@
+{% if finished %}
+<button class="btn btn-primary" hx-post="/progress" hx-swap="outerHTML">Install</button>
+{% else %}
+<div class="progress" hx-trigger="load delay:1s" hx-swap="outerHTML" hx-post="/progress"
+    hx-vals='{"total_time": "{{total_time}}"}'>
+    <div class="progress-bar" style="width: {{total_time}}%" role="progressbar" aria-valuenow="{{total_time}}"
+        aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+{% endif %}

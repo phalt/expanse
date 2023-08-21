@@ -1,1 +1,1 @@
-from src.views import index  # noqa
+from src.views import index, htmx  # noqa
