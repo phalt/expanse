@@ -1,0 +1,54 @@
+{% extends 'base.jinja2' %}
+
+{% block header %}
+  <h1>{% block title %}HTMX{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<h2>Inspect the source, go through each example</h2>
+
+<p>Normal anchor tag to another page: <a href="/other-page">Click me</a></p>
+<hr />
+
+
+
+
+<h2>HTMX examples</h2>
+<hr />
+
+
+
+
+<h3>HX-GET</h3>
+<h4>Simple example</h4>
+<p><div hx-get="/other-page">Click me</div></p>
+<hr />
+
+
+
+
+<h4>target another div</h4>
+<p><div id="swap-target-1">original content</div></p>
+<p><div hx-get="/other-page" hx-target="#swap-target-1">Click me</div></p>
+<hr />
+
+
+
+
+
+<h4>Control the swap strategy</h4>
+<p><div id="swap-target-extend">original content</div></p>
+<p><div hx-get="/other-page" hx-target="#swap-target-extend" hx-swap="afterend">Click me to extend the content</div></p>
+<hr />
+
+
+
+
+<h3>HX-POST</h3>
+<h4>Simple todo list</h4>
+<form hx-post="/post-example" hx-target="#post-target" hx-swap="afterend">
+  <label>Todo item: <input name="item" type="text"></label>
+</form>
+<ul id="post-target"></ul>
+<hr />
+{% endblock %}

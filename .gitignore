@@ -1,0 +1,10 @@
+.venv
+.mypy_cache
+.yarn*
+.ruff*
+node_modules
+.editorconfig
+src/static/js/*
+metafile.json
+site
+dist

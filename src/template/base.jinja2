@@ -1,0 +1,18 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} - RF</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<script src="{{ url_for('static', filename='htmx.js') }}"></script>
+
+<nav>
+{# This nav is used on all pages #}
+</nav>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</section>
+{% block script %}{% endblock %}
